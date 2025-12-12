@@ -71,7 +71,7 @@ for i = 1:height(testTbl)
     elseif c < target_c, feat = [feat zeros(r, target_c-c)]; end
     % ---------------------------------------------------
 
-    % Normalize using Training Stats (Crucial for correct activations)
+    % Normalize using Training Stats
     feat = (feat - mu_prim) / (sigma_prim + eps); 
     
     X_test(:,:,1,i) = single(feat);
@@ -85,7 +85,7 @@ fprintf('Extracting Activations from Global Pooling Layer...\n');
 % --- ROBUST LAYER FINDING LOGIC ---
 layer_name = '';
 
-% Method A: Check class string directly (Version independent)
+% Method A: Check class string directly
 for i = 1:numel(net_prim.Layers)
     if contains(class(net_prim.Layers(i)), 'GlobalAveragePooling')
         layer_name = net_prim.Layers(i).Name;

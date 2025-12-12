@@ -2,7 +2,6 @@
 % ============================================================
 % Author: Okoampah Ernest
 % Date: 24/11/2025
-
 % This script packs the Primary Model, Secondary Model, and
 % Config into a single file 'simulink_data_package.mat'.
 % This makes the Simulink MATLAB Function block much simpler.
@@ -10,7 +9,7 @@
 clearvars; clc;
 
 % 1. Setup Paths
-project_root = pwd; % Assuming running from 'scripts' folder
+project_root = pwd;
 results_dir = fullfile(project_root, '..', 'results');
 manifest_dir = fullfile(project_root, '..', 'manifests');
 
@@ -32,7 +31,7 @@ net_sec = d2.net_sec;
 stats_sec.mu = d2.mu_sec;
 stats_sec.sigma = d2.sigma_sec;
 
-% 3. Define Weights & Thresholds (Hardcoded for Simulink)
+% 3. Define Weights & Thresholds 
 ensemble_weights = [0.62, 0.38]; % Primary, Secondary
 class_names = {'background', 'chainsaw', 'engine'};
 

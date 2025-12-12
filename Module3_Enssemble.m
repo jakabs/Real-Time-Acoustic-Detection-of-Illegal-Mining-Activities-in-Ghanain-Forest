@@ -118,7 +118,7 @@ fprintf('Optimal Weight Found: w_prim = %.2f | w_sec = %.2f\n', best_w, 1-best_w
 fprintf('Best Validation Accuracy: %.2f%%\n', best_acc*100);
 
 %% -------------------------
-%% 5. Final Test Evaluation (FIXED)
+%% 5. Final Test Evaluation 
 %% -------------------------
 fprintf('\n--- 5. Final Test Set Evaluation ---\n');
 

@@ -3,8 +3,8 @@ function [raw_id, raw_conf, raw_threat] = run_galamsey_inference(Audio_Frame)
     persistent model last_alert_time
     
     % --- CONFIGURATION: SENSOR LOCATION (Kumasi, Ghana) ---
-    SENSOR_LAT  = 6.6885; 
-    SENSOR_LONG = -1.6242;
+    SENSOR_LAT  = 66.6907; 
+    SENSOR_LONG = -2.04698;
     % ------------------------------------------------------
 
     % Load Model (Only runs once)
@@ -18,7 +18,7 @@ function [raw_id, raw_conf, raw_threat] = run_galamsey_inference(Audio_Frame)
         last_alert_time = datetime('now') - minutes(1);
     end
 
-    % 2. INITIALIZE OUTPUTS (Fixes 'Unrecognized variable' error)
+    % 2. INITIALIZE OUTPUTS 
     raw_id = 1;         % Default: Background
     raw_conf = 0.0;
     raw_threat = 0;     % Default: Safe
@@ -108,7 +108,7 @@ function [raw_id, raw_conf, raw_threat] = run_galamsey_inference(Audio_Frame)
                           threat_name, raw_conf*100);
             
             % Send Alert with GPS Coordinates
-            % Note: Make sure you saved the updated send_telegram_alert.m as well!
+          
             send_telegram_alert(msg, SENSOR_LAT, SENSOR_LONG);
             
             % Reset Timer
