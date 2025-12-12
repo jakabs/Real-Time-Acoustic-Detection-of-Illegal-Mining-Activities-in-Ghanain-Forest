@@ -1,4 +1,4 @@
-%% MODULE 2 - Hybrid Feature Training & Analysis
+%% MODULE 2 - CNN Hybrid Feature Training & Analysis
 % ============================================================
 % Author: Okoampah Ernest
 % Date: 24/11/2025
@@ -162,7 +162,7 @@ acc_sec = mean(Ypred_sec == Ytest);
 fprintf('Secondary Model Accuracy: %.2f%%\n', acc_sec*100);
 
 %% -------------------------
-%% 5. Study Visualizations (Expanded)
+%% 5. Study Visualizations 
 %% -------------------------
 fprintf('\n--- 5. Generating Study Figures ---\n');
 

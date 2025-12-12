@@ -49,7 +49,7 @@ classes = {'background', 'chainsaw', 'engine'};
 % 3. Set Weights & Thresholds
 w_prim = 0.62; 
 w_sec  = 0.38;
-rms_threshold = 0.002;  % Lower RMS threshold for better mic sensitivity
+rms_threshold = 0.002;  
 
 fprintf('System Ready.\n');
 fprintf(' - RMS Threshold: %.3f\n', rms_threshold);
@@ -135,7 +135,7 @@ for i = 1:num_clips
     [~, raw_idx] = max(p_final);
     
     % --- 4. PHYSICS LOGIC CHECK (BAND POWER RATIO) ---
-    % This function prints debug info so you can see the ratio
+
     corrected_idx = verify_prediction_physics(clip, params.fs_target, raw_idx, classes);
     
     % Update Scores based on logic correction
