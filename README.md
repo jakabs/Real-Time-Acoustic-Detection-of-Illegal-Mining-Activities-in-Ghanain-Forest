@@ -1,8 +1,11 @@
 # Combating Galamsey- A Hybrid Deep Learning Framework with Physics-Informed Post-Processing for Real-Time Acoustic Detection of Illegal Mining Activities
 
 This is a robust, end-to-end acoustic surveillance framework designed to combat illegal artisanal mining ("Galamsey") in Ghanaian forest. By leveraging a Hybrid Dual-Stream Deep Learning architecture and Physics-Aware Logic, this system detects heavy machinery (excavators, chainsaws) in real-time and dispatches geo-tagged alerts to stakeholders via Telegram. Key FeaturesHybrid Feature Fusion: Combines Log-Mel Spectrograms (Texture) and MFCCs (Timbre) using a weighted ensemble CNN to achieve 98.68% accuracy.Physics-Aware Logic Check: A novel deterministic layer that uses Spectral Band Power Ratios (Bass vs. Treble) to validate AI predictions, eliminating false positives caused by environmental noise.Real-Time Inference: Optimized for edge deployment with a 1.5-second sliding window and adaptive noise gating.IoT Alerting: Integrated Simulink-to-Telegram pipeline that pushes instant "Threat Detected" notifications with Google Maps GPS coordinates. Repository StructureThe project is organized into modular scripts for reproducibility
-
-:Bash├── data_raw/                  # (Not included) Place your .wav dataset here
+:Bash
+├── data_raw/                  # (Not included) Place your .wav dataset here
+|  ├── background/             # background_1.wav
+|  ├── chainsaw/               # chainsaw_1.wav
+|  ├── engine/                 # engine_1.wav
 ├── data_processed/            # Generated features (Mel/MFCC matrices)
 ├── manifests/                 # CSV files for Train/Val/Test splits
 ├── results/                   # Trained models (.mat) and performance metrics
@@ -13,6 +16,7 @@ This is a robust, end-to-end acoustic surveillance framework designed to combat 
 │   ├── Module_3_Ensemble.m        # Late Fusion & Evaluation
 │   ├── Module_4_Visualization.m   # t-SNE & Waveform Plots
 │   ├── Module_5_Inference.m       # Standalone Inference Script
+|   ├── Module_6_Data_Simulink     # Prepare Models for Simulink 
 │   ├── run_galamsey_inference.m   # Helper function for Simulink
 │   └── send_telegram_alert.m      # IoT Alerting Logic
 └── README.md
